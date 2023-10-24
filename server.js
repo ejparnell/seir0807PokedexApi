@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config()
 const userRouter = require('./routes/users')
+const pokemonRouter = require('./routes/pokemon')
 
 const SERVERDEVPORT = 4741
 const CLIENTDEVPORT = 5173
@@ -20,6 +21,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/users', userRouter)
+app.use('/pokemon', pokemonRouter)
 
 app.listen(PORT, () => {
     console.log('listening on port ' + PORT)
